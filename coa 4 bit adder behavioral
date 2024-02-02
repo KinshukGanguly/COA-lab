@@ -1,0 +1,20 @@
+
+architecture Behavioral of four_bit_adder is
+
+begin
+process(a,b,cin)
+
+variable u:STD_LOGIC_VECTOR(4 downto 0);
+
+begin
+u(0):=cin;
+
+for i in 0 to 3 loop
+
+s(i)<=a(i) xor b(i) xor u(i);
+u(i+1):=(a(i) and b(i) )or (b(i) and u(i)) or (a(i) and u(i));
+
+end loop;
+co<=u(4);
+end process;
+end Behavioral;
