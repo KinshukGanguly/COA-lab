@@ -1,0 +1,20 @@
+entity BinToGreyBehavioral is
+    Port ( b : in  STD_LOGIC_VECTOR (3 downto 0);
+           g : out  STD_LOGIC_VECTOR (3 downto 0));
+end BinToGreyBehavioral;
+
+architecture Behavioral of BinToGreyBehavioral is
+
+begin
+process(b)
+begin
+g(3)<=b(3);
+for i in 2 downto 0 loop
+ if(b(i)=b(i+1))
+   then g(i)<='0';
+ else
+  g(i)<='1';
+  end if;
+ end loop;
+ end process;
+end Behavioral;
