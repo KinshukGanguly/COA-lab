@@ -1,0 +1,13 @@
+entity GreyToBinDF is
+    Port ( g : in  STD_LOGIC_VECTOR (3 downto 0);
+           b : inout  STD_LOGIC_VECTOR (3 downto 0));
+end GreyToBinDF;
+
+architecture Dataflow of GreyToBinDF is
+
+begin
+b(3)<=g(3);
+b(2)<=g(2) xor b(3);
+b(1)<=b(2) xor g(1);
+b(0)<= b(1) xor g(0);
+end Dataflow;
