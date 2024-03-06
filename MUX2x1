@@ -1,0 +1,16 @@
+
+entity MUX2x1 is
+    Port ( I0 : in  STD_LOGIC;
+           I1 : in  STD_LOGIC;
+           S0 : in  STD_LOGIC;
+           Y : out  STD_LOGIC);
+end MUX2x1;
+
+architecture Dataflow of MUX2x1 is
+
+begin
+Y<=( not(S0) and I0 ) or (S0 and I1);
+
+end Dataflow;
+
+
