@@ -1,0 +1,17 @@
+
+entity MUX4x1 is
+    Port ( I0 : in  STD_LOGIC;
+           I1 : in  STD_LOGIC;
+           I2 : in  STD_LOGIC;
+           I3 : in  STD_LOGIC;
+           S0 : in  STD_LOGIC;
+           S1 : in  STD_LOGIC;
+           Y : out  STD_LOGIC);
+end MUX4x1;
+
+architecture Dataflow of MUX4x1 is
+
+begin
+Y<=(NOT(S0)AND NOT(S1) AND I0)OR(NOT(S0)AND S1 AND I0)OR(S0 AND NOT(S1) AND I0)OR(S0 AND S1 AND I0);
+
+end Dataflow;
