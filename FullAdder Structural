@@ -1,0 +1,50 @@
+
+entity HalfAdder2df is
+    Port ( a : in  STD_LOGIC;
+           b : in  STD_LOGIC;
+           s : out  STD_LOGIC;
+           c : out  STD_LOGIC);
+end HalfAdder2df;
+
+architecture Dataflow of HalfAdder2df is
+
+begin
+s<=a xor b;
+c<=a and b;
+end Dataflow;
+
+
+
+
+
+entity FullAdderStructural is
+    Port ( a : in  STD_LOGIC;
+           b : in  STD_LOGIC;
+           cin : in  STD_LOGIC;
+           s : out  STD_LOGIC;
+           co : out  STD_LOGIC);
+end FullAdderStructural;
+
+architecture Behavioral of FullAdderStructural is
+component HalfAdder2df is
+    Port ( a : in  STD_LOGIC;
+           b : in  STD_LOGIC;
+           s : out  STD_LOGIC;
+           c : out  STD_LOGIC);
+end component;
+
+component ORdf is
+    Port ( a : in  STD_LOGIC;
+           b : in  STD_LOGIC;
+           c : out  STD_LOGIC);
+end component;
+signal x:STD_LOGIC;
+
+signal y:STD_LOGIC;
+
+signal z:STD_LOGIC;
+begin
+v0:HalfAdder2df port map(a,b,x,y);
+v1:HalfAdder2df port map(x,cin,s,z);
+v2:ORdf port map(y,z,co);
+end Behavioral;
