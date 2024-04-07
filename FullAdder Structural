@@ -14,9 +14,6 @@ c<=a and b;
 end Dataflow;
 
 
-
-
-
 entity FullAdderStructural is
     Port ( a : in  STD_LOGIC;
            b : in  STD_LOGIC;
@@ -26,6 +23,7 @@ entity FullAdderStructural is
 end FullAdderStructural;
 
 architecture Behavioral of FullAdderStructural is
+
 component HalfAdder2df is
     Port ( a : in  STD_LOGIC;
            b : in  STD_LOGIC;
@@ -38,6 +36,7 @@ component ORdf is
            b : in  STD_LOGIC;
            c : out  STD_LOGIC);
 end component;
+
 signal x:STD_LOGIC;
 
 signal y:STD_LOGIC;
